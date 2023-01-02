@@ -10,3 +10,4 @@ It outputs a feature class containing lines representing the route from each par
 Census_Metrics.py
 This python code parses Canadian Census data (downloaded form https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/details/page_Download-Telecharger.cfm?Lang=E&Tab=1&Geo1=CT&Code1=9320205.00&Geo2=CMACA&Code2=932&SearchText=9320205.00&SearchType=Begins&SearchPR=01&B1=Journey%20to%20work&TABID=3&type=0), returning a table of census tracts within the Vancouver Census Metropolitan Area and metrics related to commuting.
 
+Please feel free to use this code/methodology to run your own analyse - I'd love to see the results!
