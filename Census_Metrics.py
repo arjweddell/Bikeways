@@ -4,14 +4,9 @@
 #
 # This python script is used for extracting the Jounrey to Work commute
 # mode data from the census table and summarizing it by census tract.
-# This script also summarizes route data stored in csv files, and calculates
-# the mean, median, minimum, maximum, standard deviation, and interquartile 
-# range for each file, then summarizes this data in a table by census tract.
 #
 # Arguments: Input:  census data table (csv)
-#                    any number of route data tables (csv)
-#            Output: dataframe containing census commute mode data by census tract
-#                    dataframe summarizing route data        
+#            Output: dataframe containing census commute mode data by census tract        
 #
 # Created: November 2020
 # Designed to work with Python 3.6
@@ -77,28 +72,3 @@ commute_minimum = df_van_commute['bike_mode'].min()
 commute_iq = scipy.stats.iqr(df_van_commute['bike_mode'])
 
 commute_stats = pd.DataFrame(["mean","median","stdev","minimum","maximum","iq"],[commute_mean,commute_median,commute_stdev,commute_minimum,commute_maximum,commute_iq])
-
-# Import Route Files
-
-os.chdir("C:/Users/Angie/Documents/Python/Census Tracts")
-files = glob.glob('*.csv')
-data = []
-for csv in files:
-    frame = pd.read_csv(csv)
-    frame['filename'] = os.path.basename(csv)
-    data.append(frame)
-
-# Calculate summary statistics for each census tract and create data frame
-
-CTs = [df['filename'].iloc[0].strip('T_Routes_table.csv').replace("_","") for df in data]
-mean = [df['Shape_Length'].mean() for df in data]
-median = [df['Shape_Length'].median() for df in data]
-stdev = [df['Shape_Length'].std() for df in data]
-maxi = [df['Shape_Length'].max() for df in data]
-mini = [df['Shape_Length'].min() for df in data]
-iq = [scipy.stats.iqr(df['Shape_Length']) for df in data]
-count = [len(df.index) for df in data]
-
-stats_all_df = DataFrame(list(zip(CTs,mean,median,stdev,maxi,mini,iq,count)),columns=['CTs','mean','median','stdev','maximum','minimum','IQ','count'])
-
-
