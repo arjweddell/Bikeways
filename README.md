@@ -1,6 +1,6 @@
 # Proximity to bike routes and mode share
 
-This repository contains the code used to analyse the relationshiop between distance to bikeways and bike commute mode share, using data for the Metro Vancouver Area from 2016. See Proximity to bike routes and mode share - An analysis of the Metro Vancouver Area.pdf for the full results and discussion.
+This repository contains the code used to analyse the relationship between distance to bikeways and bike commute mode share, using data for the Metro Vancouver Area from 2016. See Proximity to bike routes and mode share - An analysis of the Metro Vancouver Area.pdf for the full results and discussion.
 
 Distance_to_bike_routes.py
 This is the python code I used to determine the distance from residential parcels to the nearest bikeway, using ArcMap and the Network Analyst extension.
